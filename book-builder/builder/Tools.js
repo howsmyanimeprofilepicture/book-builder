@@ -37,5 +37,19 @@ class Tools {
     static getConfig() {
         return JSON.parse(fs.readFileSync(path_1.default.join(__dirname, "../_config.json"), { encoding: "utf-8" }));
     }
+    static recurCopy(_path, _dest) {
+        const subFiles = fs.readdirSync(_path);
+        Tools.makeDir(_dest);
+        subFiles.forEach((file) => {
+            const stats = fs.statSync(path_1.default.join(_path, file));
+            if (stats.isFile()) {
+                fs.copyFileSync(path_1.default.join(_path, file), path_1.default.join(_dest, file));
+            }
+            else if (stats.isDirectory()) {
+                Tools.makeDir(path_1.default.join(_dest, file));
+                this.recurCopy(path_1.default.join(_path, file), path_1.default.join(_dest, file));
+            }
+        });
+    }
 }
 exports.default = Tools;

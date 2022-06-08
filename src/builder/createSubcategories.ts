@@ -14,7 +14,7 @@ export default function createSubcategories(mainChapter: string): Array<Subcateg
         let posts: Array<string> = fs.readdirSync(
             path.join(__dirname, "../_posts", mainChapter, subChapter)
         );
-        posts = posts.map(post => post.split(".")[0]);
+        posts = posts.map(post => post.split(".md")[0]);
 
         posts.forEach((post) => {
             let mdText: string = fs.readFileSync(

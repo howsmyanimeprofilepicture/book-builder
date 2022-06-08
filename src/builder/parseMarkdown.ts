@@ -5,20 +5,13 @@ export default function parseMarkdown(
     markdown: string,
     pageType: pageType = "post",
 ) {
-    const tm = require('markdown-it-texmath');
-
+    const mk = require('@iktakahiro/markdown-it-katex');
     const md = require('markdown-it')()
         .use(require('markdown-it-highlightjs'))
-        .use(tm, {
-            engine: require('katex'),
-            delimiters: 'dollars',
-            katexOptions: { macros: { "\\RR": "\\mathbb{R}" } }
-        });
+        .use(mk)
+        .use(require("markdown-it-mark"));
 
-    // const mk = require('@iktakahiro/markdown-it-katex');
-    // const md = require('markdown-it')()
-    //     .use(require('markdown-it-highlightjs'))
-    //     .use(mk);
+
 
 
 

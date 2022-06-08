@@ -9,6 +9,6 @@
     "katex": "^0.16.0",
     "markdown-it": "^13.0.1",
     "markdown-it-highlightjs": "^4.0.1",
-    "markdown-it-texmath": "^1.0.0"
+    "markdown-it-mark": "^3.0.1"
   }
 }

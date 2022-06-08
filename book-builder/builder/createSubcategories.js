@@ -13,7 +13,7 @@ function createSubcategories(mainChapter) {
     return subChapters.map((subChapter) => {
         Tools_1.default.makeDir(path_1.default.join(__dirname, "../build/_posts", mainChapter, subChapter));
         let posts = fs_1.default.readdirSync(path_1.default.join(__dirname, "../_posts", mainChapter, subChapter));
-        posts = posts.map(post => post.split(".")[0]);
+        posts = posts.map(post => post.split(".md")[0]);
         posts.forEach((post) => {
             let mdText = fs_1.default.readFileSync(path_1.default.join(__dirname, `../_posts/${mainChapter}/${subChapter}/${post}.md`), { encoding: "utf-8" });
             mdText = (0, parseMarkdown_1.default)(mdText);
