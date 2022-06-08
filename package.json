@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "@types/node": "^17.0.41"
+  },
+  "dependencies": {
+    "@iktakahiro/markdown-it-katex": "^4.0.1",
+    "glob": "^8.0.3",
+    "highlight.js": "^11.5.1",
+    "katex": "^0.16.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-highlightjs": "^4.0.1",
+    "markdown-it-texmath": "^1.0.0"
+  }
+}

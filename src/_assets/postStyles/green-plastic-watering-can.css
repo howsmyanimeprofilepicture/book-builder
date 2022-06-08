@@ -1,0 +1,175 @@
+
+@font-face {
+  /* 👩👩👩👩D2 웹버전임 */
+  font-family: "D2Coding";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@import url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
+
+@font-face {
+  font-family: "NanumBarunpen";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NanumSquareRound";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+:root {
+  --primary-0: #00c76a;
+  --primary-1: #78ff7c;
+  --primary-2: #a81d5a;
+  --primary-3: #f55b9f;
+  --primary-4: #6d5ffd;
+  --mint: #010ba8;
+  --hotpink: rgb(243, 8, 145);
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  /* color: var(--color1); */
+  line-height: 1.4;
+  /* 줄간격 태그임 */
+}
+
+del {
+  color: var(--primary-3);
+  text-decoration-color: blue;
+}
+
+a {
+  color: var(--primary-3);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+
+u {
+  color: var(--hotpink);
+  text-decoration: none;
+}
+
+mark {
+  background-color: #e2ffeb;
+
+  color: var(--primary-4);
+}
+
+em {
+  color: #ae00ff;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  line-height: 1.4;
+  cursor: text;
+  color: var(--primary-4);
+}
+
+/* h1이랑 h2에만 적용되는 옵션 */
+h1 {
+  font-size: 2.25em;
+  line-height: 1.75;
+  padding-left: 7px;
+  left: -7px;
+  border-bottom: 1px solid var(--primary-4);
+  border-left: 10px solid var(--primary-4);
+}
+h2 {
+  font-size: 1.75em;
+  line-height: 1.5;
+  padding-left: 7px;
+  left: -7px;
+  border-bottom: 1px solid var(--primary-4);
+  border-left: 10px solid var(--primary-4);
+}
+h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+h4 {
+  font-size: 1.25em;
+}
+h5 {
+  font-size: 1em;
+}
+h6 {
+  font-size: 1em;
+  color: var(--primary-3);
+}
+
+blockquote {
+  border: 1px solid var(--primary-3);
+  border-left: 4.5px solid var(--primary-3);
+
+  padding: 0 15px;
+  /* color: #777777; */
+}
+blockquote blockquote {
+  padding-right: 0;
+}
+table {
+  padding: 0;
+  word-break: initial;
+}
+table tr {
+  border: 1px solid var(--primary-4);
+  margin: 0;
+  padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+  background-color: rgba(0, 255, 149, 0.137);
+  color: rgb(0, 0, 0);
+}
+table th {
+  font-weight: bold;
+  border: 1px solid var(--primary-4);
+  border-bottom: 0;
+  margin: 0;
+  padding: 6px 13px;
+}
+table td {
+  border: 1px solid var(--primary-4);
+  margin: 0;
+  padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+  margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+  margin-bottom: 0;
+}
+
+code {
+  font-family: "D2Coding";
+  background-color: rgba(250, 101, 255, 0.096);
+  color: var(--hotpink);
+  padding: 0 2px 0 2px;
+}
