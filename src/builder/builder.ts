@@ -11,19 +11,19 @@ import createCategoryStyle from './createCategoryStyle';
 
 
 export default function builder(): void {
-    T.makeDir(path.join(__dirname, "../build"));
-    T.makeDir(path.join(__dirname, "../build", "_assets"));
-    T.makeDir(path.join(__dirname, "../build", "_posts"));
+    T.makeDir(path.join(__dirname, "../../docs"));
+    T.makeDir(path.join(__dirname, "../../docs", "assets"));
+    T.makeDir(path.join(__dirname, "../../docs", "posts"));
 
     let maincategory_html: string = ""
 
     const mainChapters: Array<string> = fs.readdirSync(
-        path.join(__dirname, "../_posts")
+        path.join(__dirname, "../posts")
     );
 
     mainChapters.forEach((mainChapter) => {
         T.makeDir(path.join(
-            __dirname, "../build", "_posts", mainChapter,
+            __dirname, "../../docs", "posts", mainChapter,
         ));
         const maincategory: Maincategory = new Maincategory({
             categoryName: mainChapter,
@@ -40,7 +40,7 @@ export default function builder(): void {
     sendAsset();
 
     fs.writeFileSync(
-        path.join(__dirname, "../build/index.html"),
+        path.join(__dirname, "../../docs/index.html"),
         htmlTemplate(maincategory_html), {
         encoding: "utf-8",
     });
@@ -51,7 +51,7 @@ export default function builder(): void {
 
 
     fs.writeFileSync(
-        path.join(__dirname, "../build/_posts/main.html"),
+        path.join(__dirname, "../../docs/posts/main.html"),
         parseMarkdown(mainMarkdown, "main"),
         { encoding: "utf-8", }
     );

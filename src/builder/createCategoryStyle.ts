@@ -20,7 +20,7 @@ export default function createCategoryStyle({ main, sub }: {
 `   }
 
     fs.writeFileSync(
-        path.join(__dirname, "../build/_assets/category-style.css"),
+        path.join(__dirname, "../../docs/assets/category-style.css"),
         categoryCSS, { encoding: "utf-8" }
     );
 }

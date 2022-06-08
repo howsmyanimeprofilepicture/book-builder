@@ -6,9 +6,9 @@ export default function (maincategory_html: string): string {
     <meta http - equiv="X-UA-Compatible" content="IE=edge" >
     <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
         <title>a r c h i v e </title>
-        <link rel = "stylesheet" href="./_assets/ui.css">
+        <link rel = "stylesheet" href="./assets/ui.css">
         
-        <script src='./_assets/index.js' defer > </script>
+        <script src='./assets/index.js' defer > </script>
     </head>`;
 
 

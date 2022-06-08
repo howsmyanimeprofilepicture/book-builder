@@ -5,7 +5,7 @@
   --color1: #8064a9;
 }
 
-#_posts {
+#posts {
   position:relative ;
   color: rgb(117, 204, 204);
   width: calc(100% - var(--left-side-width));
@@ -70,7 +70,7 @@ section{
     display: none;
   }
 
-  #_posts {
+  #posts {
     padding: 0;
     width: 99.5vw;
     margin-top: 70px;

@@ -6,25 +6,25 @@ import path from "path";
 
 export default function createSubcategories(mainChapter: string): Array<Subcategory> {
     const subChapters: Array<string> = fs.readdirSync(
-        path.join(__dirname, "../_posts", mainChapter));
+        path.join(__dirname, "../posts", mainChapter));
 
     return subChapters.map((subChapter) => {
-        T.makeDir(path.join(__dirname, "../build/_posts",
+        T.makeDir(path.join(__dirname, "../../docs/posts",
             mainChapter, subChapter));
         let posts: Array<string> = fs.readdirSync(
-            path.join(__dirname, "../_posts", mainChapter, subChapter)
+            path.join(__dirname, "../posts", mainChapter, subChapter)
         );
         posts = posts.map(post => post.split(".md")[0]);
 
         posts.forEach((post) => {
             let mdText: string = fs.readFileSync(
-                path.join(__dirname, `../_posts/${mainChapter}/${subChapter}/${post}.md`),
+                path.join(__dirname, `../posts/${mainChapter}/${subChapter}/${post}.md`),
                 { encoding: "utf-8" }
             );
             mdText = parseMarkdown(mdText);
 
             fs.writeFileSync(
-                path.join(__dirname, `../build/_posts/${mainChapter}/${subChapter}/${post}.html`),
+                path.join(__dirname, `../../docs/posts/${mainChapter}/${subChapter}/${post}.html`),
                 mdText, {
                 encoding: "utf-8"
             })

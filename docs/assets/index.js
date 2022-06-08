@@ -1,6 +1,6 @@
 function createPosts(){
   const iframeElement = document.createElement('iframe');
-  iframeElement.id = '_posts';
+  iframeElement.id = 'posts';
   iframeElement.src = `./main`;
   iframeElement.frameBorder = 0;
   
@@ -21,8 +21,8 @@ const parsedURL = createParsedURL();
 document.getElementsByTagName('body')[0].appendChild(iframeElement);
 
 console.log(parsedURL);
-document.getElementById('_posts').frameBorder =0 ;
-document.getElementById('_posts').src = parsedURL ? `./_posts/${parsedURL}.html` : './_posts/main.html' ;
+document.getElementById('posts').frameBorder =0 ;
+document.getElementById('posts').src = parsedURL ? `./posts/${parsedURL}.html` : './posts/main.html' ;
 
 let sectionElem = document.getElementById('side-bar').getElementsByTagName('section')[0]
 
@@ -37,12 +37,12 @@ function onClick (e) {
   const dirName = e.target.parentElement.getElementsByTagName('summary')[0].innerText
   const parentDirName = e.target.parentElement.parentElement.getElementsByTagName('summary')[0].innerText
 
-  const _postsName = e.target.innerHTML;
-  //console.log(_postsName, '_postsName')
-  if ( document.getElementById('_posts') ) document.getElementById('_posts').remove();
+  const postsName = e.target.innerHTML;
+  //console.log(postsName, 'postsName')
+  if ( document.getElementById('posts') ) document.getElementById('posts').remove();
   const newElem = document.createElement('iframe')
-  newElem.id = '_posts'
-  newElem.src = `./_posts/${parentDirName}/${dirName}/${_postsName}.html`
+  newElem.id = 'posts'
+  newElem.src = `./posts/${parentDirName}/${dirName}/${postsName}.html`
   newElem.frameBorder = 0;
   document.getElementsByTagName('body')[0]
   .appendChild(newElem)
@@ -52,12 +52,12 @@ function onClick (e) {
   history.pushState(
     null, 
     null, 
-    `?q=${parentDirName}/${dirName}/${_postsName}`,
+    `?q=${parentDirName}/${dirName}/${postsName}`,
   );
   // document.getElementById('folding').click();
 }
 
-  const linkList = document.getElementsByClassName('_postsLink')
+  const linkList = document.getElementsByClassName('postsLink')
   for (item of linkList){
     item.addEventListener('click', onClick)
   }

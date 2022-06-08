@@ -13,7 +13,7 @@ class Subcategory extends DeatilsElem_1.default {
         this.summary.innerHTML.push(args.categoryName);
         for (let post of args.posts) {
             const li = new LiElem_1.default();
-            li.className = "_postsLink";
+            li.className = "postsLink";
             li.innerHTML.push(post);
             this.innerHTML.push(li);
         }

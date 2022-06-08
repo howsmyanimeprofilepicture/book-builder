@@ -6,6 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = __importDefault(require("path"));
 const Tools_1 = __importDefault(require("./Tools"));
 function sendAsset() {
-    Tools_1.default.recurCopy(path_1.default.join(__dirname, "../_assets"), path_1.default.join(__dirname, "../build/_assets"));
+    Tools_1.default.recurCopy(path_1.default.join(__dirname, "../assets"), path_1.default.join(__dirname, "../../docs/assets"));
 }
 exports.default = sendAsset;

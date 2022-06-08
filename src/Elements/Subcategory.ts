@@ -13,7 +13,7 @@ export default class Subcategory extends DetailsElem {
 
         for (let post of args.posts) {
             const li: LiElem = new LiElem();
-            li.className = "_postsLink";
+            li.className = "postsLink";
             li.innerHTML.push(post);
             this.innerHTML.push(li);
         }

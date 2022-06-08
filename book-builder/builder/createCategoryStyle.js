@@ -19,6 +19,6 @@ function createCategoryStyle({ main, sub } = { main: {}, sub: {} }) {
 }
 `;
     }
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, "../build/_assets/category-style.css"), categoryCSS, { encoding: "utf-8" });
+    fs_1.default.writeFileSync(path_1.default.join(__dirname, "../../docs/assets/category-style.css"), categoryCSS, { encoding: "utf-8" });
 }
 exports.default = createCategoryStyle;

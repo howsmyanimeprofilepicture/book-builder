@@ -36,13 +36,13 @@ const sendAsset_1 = __importDefault(require("./sendAsset"));
 const parseMarkdown_1 = __importDefault(require("./parseMarkdown"));
 const createCategoryStyle_1 = __importDefault(require("./createCategoryStyle"));
 function builder() {
-    Tools_1.default.makeDir(path_1.default.join(__dirname, "../build"));
-    Tools_1.default.makeDir(path_1.default.join(__dirname, "../build", "_assets"));
-    Tools_1.default.makeDir(path_1.default.join(__dirname, "../build", "_posts"));
+    Tools_1.default.makeDir(path_1.default.join(__dirname, "../../docs"));
+    Tools_1.default.makeDir(path_1.default.join(__dirname, "../../docs", "assets"));
+    Tools_1.default.makeDir(path_1.default.join(__dirname, "../../docs", "posts"));
     let maincategory_html = "";
-    const mainChapters = fs.readdirSync(path_1.default.join(__dirname, "../_posts"));
+    const mainChapters = fs.readdirSync(path_1.default.join(__dirname, "../posts"));
     mainChapters.forEach((mainChapter) => {
-        Tools_1.default.makeDir(path_1.default.join(__dirname, "../build", "_posts", mainChapter));
+        Tools_1.default.makeDir(path_1.default.join(__dirname, "../../docs", "posts", mainChapter));
         const maincategory = new Maincategory_1.default({
             categoryName: mainChapter,
             subcategories: (0, createSubcategories_1.default)(mainChapter),
@@ -54,10 +54,10 @@ function builder() {
     console.log(Tools_1.default.getConfig());
     (0, createCategoryStyle_1.default)({ main, sub });
     (0, sendAsset_1.default)();
-    fs.writeFileSync(path_1.default.join(__dirname, "../build/index.html"), (0, htmlTemplate_1.default)(maincategory_html), {
+    fs.writeFileSync(path_1.default.join(__dirname, "../../docs/index.html"), (0, htmlTemplate_1.default)(maincategory_html), {
         encoding: "utf-8",
     });
     const mainMarkdown = fs.readFileSync(path_1.default.join(__dirname, "../main.md"), { encoding: "utf-8" });
-    fs.writeFileSync(path_1.default.join(__dirname, "../build/_posts/main.html"), (0, parseMarkdown_1.default)(mainMarkdown, "main"), { encoding: "utf-8", });
+    fs.writeFileSync(path_1.default.join(__dirname, "../../docs/posts/main.html"), (0, parseMarkdown_1.default)(mainMarkdown, "main"), { encoding: "utf-8", });
 }
 exports.default = builder;
