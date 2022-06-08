@@ -1,0 +1,6 @@
+.main-category[name="Chapter1"]{
+    list-style: '📖';
+}
+.sub-category[name="Chapter1-1"]{
+    list-style: '📂';
+}
