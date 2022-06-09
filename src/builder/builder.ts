@@ -11,10 +11,11 @@ import createCategoryStyle from './createCategoryStyle';
 
 
 export default function builder(): void {
-   
 
     const config: any = T.getConfig();
     const { main, sub } = config.categoryStyle
+
+
     console.log(T.getConfig());
 
     createCategoryStyle({ main, sub });

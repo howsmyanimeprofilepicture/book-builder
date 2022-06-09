@@ -6,5 +6,13 @@
         "sub" : {
             "Chapter1-1": "📂"
         }
+    },
+    "toc": {
+        "Part1":{
+            "Chapter1": ["1.1. Hello, worl.md", "1.2. LaTEX.md"]
+        },
+        "Part2":{
+            "Chapter3" : ["3.1. YOLO.md"]
+        } 
     }
 }

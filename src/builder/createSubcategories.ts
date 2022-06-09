@@ -6,68 +6,74 @@ import path from "path";
 
 import Maincategory from "../Elements/Maincategory";
 import assert from "assert";
+import PostTemplate from "../Elements/PostTemplate";
 
-export class CategoryFacotry {
-    constructor(public directoryDict: any = {}) {
+function parseAndCopy(
+    file: string,
+    ...dir: Array<string>
+): void {
+
+    const parsedHTML: PostTemplate = parseMarkdown(fs.readFileSync(
+        path.join(__dirname, "../posts", ...dir, file),
+        { encoding: "utf-8" },
+    ));
+
+    fs.writeFileSync(
+        path.join(
+            __dirname, "../../docs/posts",
+            ...dir, file.split(".md")[0] + ".html"
+        ),
+        parsedHTML.getHTML(),
+        { encoding: "utf-8" },
+    );
+}
+
+function parseMarkdownFiles(
+    markdowns: Array<string>,
+    dir: string = "",
+): void {
+    markdowns.forEach((file) => {
+        if (file.endsWith(".md")) {
+            parseAndCopy(file, dir);
+        }
+    })
+}
+
+function recursiveParser(dirDict: any, opt_dir: string = ""): void {
+    assert(!Array.isArray(dirDict), "`dirDict`'s type must not be `Array`!!💩")
+
+    for (let dir in dirDict) {
+        T.makeDir(path.join(__dirname, "../../docs/posts", opt_dir, dir))
+        if (Array.isArray(dirDict[dir])) {
+
+
+            parseMarkdownFiles(
+                dirDict[dir],
+                path.join(opt_dir, dir)
+            );
+
+        } else {
+            recursiveParser(dirDict[dir], opt_dir + dir)
+        }
+    }
+}
+
+
+
+export default class CategoryFacotry {
+    public directoryDict: any;
+
+    constructor(directoryDict: any = {}) {
+        this.directoryDict = directoryDict;
         T.makeDir(path.join(__dirname, "../../docs"));
         T.makeDir(path.join(__dirname, "../../docs", "assets"));
         T.makeDir(path.join(__dirname, "../../docs", "posts"));
     }
 
     public parseMarkdowns(): void {
-        this.recursiveParser(this.directoryDict);
-    }
-
-
-    private recursiveParser(directoryDict: any, opt_dir: string = "") {
-        assert(!Array.isArray(directoryDict), "`dirmap`'s type must not be `Array`!!💩")
-
-        for (let dir in directoryDict) {
-            T.makeDir(path.join(__dirname, "../../docs/posts", opt_dir, dir))
-            if (Array.isArray(directoryDict[dir])) {
-                this.parseMarkdownFiles(directoryDict[dir], path.join(opt_dir, dir));
-            } else {
-                this.recursiveParser(directoryDict[dir], opt_dir + dir)
-            }
-        }
-    }
-
-    private parseMarkdownFiles(
-        markdowns: Array<string>,
-        dir: string = "",
-        verbose: boolean = true,
-    ) {
-        markdowns.forEach((file) => {
-            if (file.endsWith(".md")) {
-                const parsedHTML: string = parseMarkdown(fs.readFileSync(
-                    path.join(__dirname, "../posts", dir, file),
-                    { encoding: "utf-8" },
-                ));
-
-                fs.writeFileSync(
-                    path.join(
-                        __dirname, "../../docs/posts",
-                        dir, file.split(".md")[0] + ".html"
-                    ),
-                    parsedHTML,
-                    { encoding: "utf-8" },
-                );
-
-                if (verbose) {
-                    console.log(`${path.join(
-                        __dirname, "../../docs/posts",
-                        dir, file.split(".md")[0] + ".html"
-                    )}:🐤🐤 parsing complete!`);
-                }
-            }
-        })
+        recursiveParser(this.directoryDict);
     }
 }
-
-// T.makeDir(path.join(
-//     __dirname, "../../docs", "posts", part,
-// ));
-
 
 class AutoCategoryFactory extends CategoryFacotry {
 
