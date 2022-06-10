@@ -1,6 +1,8 @@
 {
   "devDependencies": {
-    "@types/node": "^17.0.41"
+    "@types/node": "^17.0.41",
+    "jest": "^28.1.1",
+    "ts-jest": "^28.0.4"
   },
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^4.0.1",

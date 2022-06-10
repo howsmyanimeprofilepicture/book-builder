@@ -43,7 +43,6 @@ function recursiveParser(dirDict: any, opt_dir: string = ""): void {
     assert(!Array.isArray(dirDict), "`dirDict`'s type must not be `Array`!!💩")
 
     for (let dir in dirDict) {
-        T.makeDir(path.join(__dirname, "../../docs/posts", opt_dir, dir))
         if (Array.isArray(dirDict[dir])) {
 
 
